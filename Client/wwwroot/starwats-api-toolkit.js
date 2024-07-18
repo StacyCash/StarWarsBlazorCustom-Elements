@@ -3,13 +3,13 @@ var scriptUrl = document.currentScript.src;
 var url = new URL(scriptUrl);
 var customElementBaseUrl = url.origin;
 
-const importMap = {
+const starwarsapiimportMap = {
     imports: {
         [`${window.location.origin}/_content/`]: `${customElementBaseUrl}/_content/`,
     }
 }
 
-const starWarsApiImportMapJson = JSON.stringify(importMap);
+const starWarsApiImportMapJson = JSON.stringify(starwarsapiimportMap);
 const starwarsapiscriptimportmap = document.createElement('script');
 starwarsapiscriptimportmap.type = 'importmap';
 starwarsapiscriptimportmap.textContent = starWarsApiImportMapJson;
