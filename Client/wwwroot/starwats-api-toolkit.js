@@ -9,18 +9,18 @@ const importMap = {
     }
 }
 
-const importMapJson = JSON.stringify(importMap);
-const scriptimportmap = document.createElement('script');
-scriptimportmap.type = 'importmap';
-scriptimportmap.textContent = importMapJson;
-document.head.appendChild(scriptimportmap);
+const starWarsApiImportMapJson = JSON.stringify(importMap);
+const starwarsapiscriptimportmap = document.createElement('script');
+starwarsapiscriptimportmap.type = 'importmap';
+starwarsapiscriptimportmap.textContent = starWarsApiImportMapJson;
+document.head.appendChild(starwarsapiscriptimportmap);
 
 // Make sure that we can load the blazor.webassembly.js file from the server where the custom element is hosted
-var blazorscript = document.createElement('script');
-blazorscript.src = `${customElementBaseUrl}/_framework/blazor.webassembly.js`;
-blazorscript.type = 'text/javascript';
-blazorscript.setAttribute('AutoStart', 'false');
-blazorscript.onload = function () {
+var starwarsblazorscript = document.createElement('script');
+starwarsblazorscript.src = `${customElementBaseUrl}/_framework/blazor.webassembly.js`;
+starwarsblazorscript.type = 'text/javascript';
+starwarsblazorscript.setAttribute('AutoStart', 'false');
+starwarsblazorscript.onload = function () {
     Blazor.start({
         loadBootResource: function (type, name, defaultUri, integrity) {
             if (type == 'dotnetjs') {
@@ -35,4 +35,4 @@ blazorscript.onload = function () {
     });
 };
 
-document.head.appendChild(blazorscript);
+document.head.appendChild(starwarsblazorscript);
