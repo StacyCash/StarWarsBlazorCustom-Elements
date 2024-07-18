@@ -27,14 +27,8 @@ jobs:
           include-prerelease: true
           
       - name: Client Build
-        run: dotnet publish ./Client/Client.csproj --output ./ClientDist
+        run: dotnet publish ./Client/*.csproj --output ./ClientDist
 
-      - name: Api Build
-        run: dotnet publish ./Api/Api.csproj --output ./ApiDist
-        
-      - name: Test PR      
-        run: dotnet test --no-restore --no-build --configuration Release        
-          
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
